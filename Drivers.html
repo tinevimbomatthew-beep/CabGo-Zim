@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head><title>Cab Go - Drivers</title></head>
+<body style="font-family:sans-serif; text-align:center; padding:20px;">
+<h1>🚖 Cab Go - Drivers</h1>
+<p>Pay $1/day to see rides today.</p>
+
+<label>Your Name:</label><br>
+<input id="name" placeholder="e.g. Tino"><br><br>
+
+<label>Your City:</label><br>
+<select id="city">
+<option>Bulawayo</option>
+<option>Harare</option>
+<option>Gweru</option>
+<option>Mutare</option>
+<option>Masvingo</option>
+</select><br><br>
+
+<label>Did you pay $1 today?</label><br>
+<select id="paid">
+<option value="no">No - I have not paid</option>
+<option value="yes">Yes - I paid $1</option>
+</select><br><br>
+
+<button onclick="goOnline()" style="background:green;color:white;padding:15px 25px;border:none;border-radius:10px;">GO ONLINE</button>
+
+<div id="rides" style="margin-top:20px; display:none;">
+<h2>Live Rides - <span id="cityShow"></span></h2>
+<p><b>Nkulumane 5 -> Town, 5km = $5.00</b></p>
+<button onclick="alert('You got this ride! Call customer after admin sends number.')" style="background:orange;padding:10px 20px;">TAKE THIS RIDE</button>
+<p style="font-size:12px;">This is test ride. Real rides will come from WhatsApp riders.</p>
+</div>
+
+<script>
+function goOnline(){
+  let paid = document.getElementById('paid').value;
+  if(paid === 'no'){
+    alert('Pay $1/day first via EcoCash to Cab Go number, then select YES. Subscription: $1 = 1 day online.');
+    return;
+  }
+  let city = document.getElementById('city').value;
+  document.getElementById('cityShow').innerText = city;
+  document.getElementById('rides').style.display = 'block';
+  alert('You are ONLINE in ' + city + '. $1 paid for today.');
+}
+</script>
+</body>
+</html>
